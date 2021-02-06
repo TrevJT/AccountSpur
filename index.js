@@ -1,30 +1,24 @@
-var app = require('express')();
-var express = require('express');
-var path = require('path');
-var http = require('http').Server(app);
-var bCrypt = require('bcryptjs');
-var bodyParser = require('body-parser');
-var router = require('./router.js');
-var Authrouter = require('./Authrouter.js');
+const cool = require('cool-ascii-faces');
+const express = require('express');
+const path = require('path');
+const PORT = process.env.PORT || 5000;
 
-// Access public folder from root
-app.use('/public', express.static('public'));
-app.get('/layouts/', function(req, res) {
-  res.render('view');
-});
+express()
+  .use(express.static(path.join(__dirname, 'public')))
+  .set('views', path.join(__dirname, 'views'))
+  .set('view engine', 'ejs')
+  .get('/', (req, res) => res.render('pages/index'))
+  .get('/cool', (req, res) => res.send(cool()))
+  .get('/times', (req, res) => res.send(showTimes()))
+  .listen(PORT, () => console.log(`Listening on ${ PORT }`));
 
-// Add Authentication Route file with app
-app.use('/', Authrouter); 
+  showTimes = () => {
+    let result = '';
+    const times = process.env.TIMES || 5;
+    for (i = 0; i < times; i++) {
+      result += i + ' ';
+    }
+    return result;
+  }
 
-//For set layouts of html view
-var expressLayouts = require('express-ejs-layouts');
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'ejs');
-app.use(expressLayouts);
-
-// Add Route file with app
-app.use('/', router); 
-
-http.listen(8000, function(){
-  console.log('listening on *:8000');
-});
+console.log("TESTTEST")
