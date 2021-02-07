@@ -13,6 +13,7 @@ app.get('/layouts/', function(req, res) {
   res.render('view');
 });
 
+
 // Add Authentication Route file with app
 app.use('/', Authrouter);
 

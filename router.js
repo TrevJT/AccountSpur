@@ -121,6 +121,9 @@ router.get('/ui-video', function (req, res) {
 router.get('/form-wizard', function (req, res) {
     res.render('Forms/form-wizard');
 })
+router.get('/refer/', (req,res) => {
+res.render('Forms/refer')
+})
 router.get('/form-elements', function (req, res) {
     res.render('Forms/form-elements');
 })
@@ -140,7 +143,7 @@ router.get('/form-summernote', function (req, res) {
     res.render('Forms/form-summernote');
 })
 router.get('/form-uploads', function (req, res) {
-    res.render('Forms/form-uploads'); 
+    res.render('Forms/form-uploads');
 })
 router.get('/form-validation', function (req, res) {
     res.render('Forms/form-validation');
@@ -206,7 +209,7 @@ router.get('/tables-responsive',function (req, res){
     res.render('Tables/tables-responsive');
 })
 
-//Icons 
+//Icons
 router.get('/icons-dripicons',function (req, res){
     res.render('Icons/icons-dripicons');
 })
