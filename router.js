@@ -9,6 +9,14 @@ router.get('/dashboard2', function (req, res) {
     res.render('Dashboard/dashboard2');
 })
 
+router.get('/single-upload', function (req, res) {
+    res.render('Forms/single-upload');
+})
+
+router.get('/contacts', function (req, res) {
+    res.render('Tables/contacts');
+})
+
 // Calendar
 router.get('/calendar', function (req, res) {
     res.render('Calendar/calendar');
@@ -191,9 +199,7 @@ router.get('/ecommerce-product-edit', function (req, res) {
 router.get('/ecommerce-product-grid', function (req, res) {
     res.render('Ecommerce/ecommerce-product-grid');
 })
-router.get('/ecommerce-product-list', function (req, res) {
-    res.render('Ecommerce/ecommerce-product-list');
-})
+
 
 //tables
 router.get('/tables-basic',function (req, res){
